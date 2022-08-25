@@ -18,7 +18,6 @@ import com.onoazusa.service.UserService;
 @Controller
 public class HomeController {
 	
-
 	@Autowired(required=true)
 	private UserService userService;
 	
@@ -44,7 +43,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	public String user(@Validated User user, Model model) {
-		System.out.println("User Page Requested");
+
 		model.addAttribute("userName", user.getUserName());
 		
 		User u = new User();
@@ -52,7 +51,6 @@ public class HomeController {
 		u.setUserName(user.getUserName());
 		
 		this.userService.addUser(u);
-		
 		return "user";
 	}
 		
